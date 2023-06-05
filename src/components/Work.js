@@ -36,6 +36,7 @@ function Work() {
                     ))}
                 </Grid>
             </div>
+            <Typography variant="h8" >Download my resume as PDF file.</Typography>
             <Download/>
         </section>
     );
