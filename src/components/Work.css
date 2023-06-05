@@ -1,0 +1,50 @@
+.work {
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    height: 100vh;
+  }
+   .work-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 50px;
+  }
+   .work-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #0077b6;
+    margin-bottom: 50px;
+  }
+   .work-subheading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+   .work-item {
+    margin-bottom: 30px;
+  }
+   .work-date {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 0;
+  }
+   .work-company {
+    font-size: 1.2rem;
+    color: #0077b6;
+    margin-top: 0;
+  }
+   .work-skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+   .work-skills-col {
+    flex: 1;
+    margin-right: 20px;
+  }
+   .work-skill {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
