@@ -21,6 +21,7 @@
 
 body {
   overflow-y: scroll;
+  margin: 0%;
 }
  ::-webkit-scrollbar {
   width: 0.5em;
@@ -42,10 +43,4 @@ body {
   height: 100vh;
   overflow-y: auto;
   scroll-snap-align: start;
-}
-.app section:nth-child(odd) {
-  background-color: #f2f2f2;
-}
-.app section:nth-child(even) {
-  background-color: #fff;
 }

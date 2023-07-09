@@ -1,21 +1,20 @@
 import './App.css';
 import Header from './components/Header';
 import About from './components/About';
-import Projects from './components/Projects';
 import Contact from './components/Contact';
-import Work from './components/Work';
-
+import Resume from './components/Resume';
+import Project from './components/Project';
+import './style.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-white">
       <div>
       <Header />
       <About/>
-      <Work/>
-      <Projects/>
+      <Resume/>
+      <Project/>
       <Contact/>
-      {/* <h1>Welcome to my portfolio!</h1> */}
     </div>
     </div>
   );
