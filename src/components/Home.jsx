@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import './About.css';
+import './Home.css';
 import Profilegif from '../assets/portfolioVideo.gif'
-function About() {
+function Home({isDarkTheme}) {
     const headingRef = useRef(null);
     useEffect(() => {
         headingRef.current.style.opacity = 1;
@@ -18,4 +18,4 @@ function About() {
         </section>
     );
 }
-export default About;
+export default Home;

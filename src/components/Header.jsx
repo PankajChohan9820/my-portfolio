@@ -1,31 +1,60 @@
-import React from 'react';
-import './Header.css';
-import GithubLogo from '../assets/github.png';
-import LinkedInLogo from '../assets/linkedin.png';
-import ProgrammerLogo from '../assets/programmerIcon.png'
+import React, { useState, useContext } from 'react';
+import { RiLinkedinFill, RiGithubFill, RiSunFill, RiMoonFill } from 'react-icons/ri';
+import { SiPaloaltosoftware } from 'react-icons/si';
+import { useNavigate } from 'react-router-dom';
+import ThemeContext from '../ThemeContext';
 
-function Header() {
-    const linkedinHref = 'https://www.linkedin.com/in/pankaj-chohan-602387168/'
-    const githubHref = 'https://github.com/PankajChohan9820'
-    return (
-        <div className="header">
-            <div className="header-left">
-                <button>
-                    <img src={ProgrammerLogo} alt="Programmer Logo" />
-                    {/* <h1>Pankaj Chohan</h1> */}
-                </button>
-            </div>
-            <div className="header-middle">
-                <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>About Me</button>
-                <button onClick={() => window.scrollTo({ top: window.innerHeight + 80, behavior: 'smooth' })}>Work</button>
-                <button onClick={() => window.scrollTo({ top: window.innerHeight * 2 + 80, behavior: 'smooth' })}>Projects</button>
-                <button onClick={() => window.scrollTo({ top: window.innerHeight * 3 + 80, behavior: 'smooth' })}>Contact</button>
-            </div>
-            <div className="header-right">
-                <a href={githubHref}><img src={GithubLogo} alt="Github Logo" /></a>
-                <a href={linkedinHref}><img src={LinkedInLogo} alt="LinkedIn Logo" /></a>
-            </div>
+const Header = () => {
+  const navigate = useNavigate();
+  const [activeLink, setActiveLink] = useState('/');
+  const { isDarkTheme, toggleTheme } = useContext(ThemeContext);
+  const handleNavigation = (path) => {
+    navigate(path);
+    setActiveLink(path);
+  };
+
+  return (
+    <header className={`flex items-center justify-between py-4 px-6 ${isDarkTheme ? 'bg-dark-bg' : 'bg-light-bg'}`}>
+      <div className="flex items-center">
+        <div className="text-2xl font-bold">
+          <span>
+            <SiPaloaltosoftware className={`${isDarkTheme ? 'fill-white' : ''}`}/>
+          </span>
         </div>
-    );
-}
+      </div>
+      <nav className="flex items-center">
+        {/* Navigation menu */}
+        <ul className="flex">
+          <li className={`mr-6 ${activeLink === '/' ? 'border-blue-500 border-b-2' : 'hover:border-blue-500 hover:border-b-2'} ${isDarkTheme ? 'text-dark-font' : 'text-light-font'}`}>
+            <button onClick={() => handleNavigation('/')}>Home</button>
+          </li>
+          <li className={`mr-6 ${activeLink === '/resume' ? 'border-blue-500 border-b-2' : 'hover:border-blue-500 hover:border-b-2'} ${isDarkTheme ? 'text-dark-font' : 'text-light-font'}`}>
+            <button onClick={() => handleNavigation('/resume')}>Resume</button>
+          </li>
+          <li className={`mr-6 ${activeLink === '/projects' ? 'border-blue-500 border-b-2' : 'hover:border-blue-500 hover:border-b-2'} ${isDarkTheme ? 'text-dark-font' : 'text-light-font'}`}>
+            <button onClick={() => handleNavigation('/projects')}>Projects</button>
+          </li>
+          <li className={`${activeLink === '/contact' ? 'border-blue-500 border-b-2' : 'hover:border-blue-500 hover:border-b-2'} ${isDarkTheme ? 'text-dark-font' : 'text-light-font'}`}>
+            <button onClick={() => handleNavigation('/contact')}>Contact</button>
+          </li>
+        </ul>
+      </nav>
+      <div className="flex items-center">
+        {/* Dark/Light theme button */}
+        {/* <button onClick={toggleTheme} className="text-gray-500 hover:text-blue-500">
+          {isDarkTheme ? <RiSunFill /> : <RiMoonFill />}
+        </button> */}
+        {/* LinkedIn icon */}
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+          <RiLinkedinFill className={`w-6 h-6 ml-4 ${isDarkTheme ? 'text-font' : 'text-heading'} hover:text-blue-500 ${isDarkTheme ? 'fill-white' : ''}`} />
+        </a>
+        {/* GitHub icon */}
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+          <RiGithubFill className={`w-6 h-6 ml-2 ${isDarkTheme ? 'text-font' : 'text-heading'} hover:text-blue-500 ${isDarkTheme ? 'fill-white' : ''}`} />
+        </a>
+      </div>
+    </header>
+  );
+};
+
 export default Header;

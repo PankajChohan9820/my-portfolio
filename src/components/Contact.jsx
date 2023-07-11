@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaPhone, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
 
-const Contact = () => {
+const Contact = ({isDarkTheme}) => {
   return (
     <div className="contact p-4 md:p-8 m-6">
       {/* Google Map */}
